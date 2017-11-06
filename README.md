@@ -71,7 +71,10 @@ In following instructions, I assume that you have some basic knowledge of JSON f
 * Check if your JSON file is valid [Online checker](https://jsonformatter.curiousconcept.com)
 * Put "calendar.json" into the files/ directory of this project.
 ### Import the data
-* Run bin/console import:json
+* Run 
+```bash
+bin/console import:json
+```
 ### Select your groups
 * Go to the admin interface (/admin) and create a user.
 * Add groups to this user. (From User view, or from Groups view)
