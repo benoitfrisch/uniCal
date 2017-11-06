@@ -1,0 +1,16 @@
+<h1>uniCal</h1>
+<p>In following instructions, I assume that you have programming knowledge and I won't go into any details. Please use
+    Google for further assistance.</p>
+<ol>
+    <li>You have to visit your "Guichet Etudiant"</li>
+    <li>Click "view source" in your browser</li>
+    <li>Select month view</li>
+    <li>You should see now an XHR Request on resources tab of your browser</li>
+    <li>Copy this data into a new file named "calendar.json"</li>
+    <li>Put "calendar.json" into the files/ directory of this project.</li>
+    <li>Run bin/console import:json</li>
+    <li><a href="{{ path('admin') }}">Go to the admin interface</a> and create a user.</li>
+    <li>Add groups to this user. (From User view, or from Groups view)</li>
+    <li>Check out user ID.</li>
+    <li>Go to /ics/{userID}. The download should begin.</li>
+</ol>

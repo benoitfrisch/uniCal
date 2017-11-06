@@ -1,0 +1,7 @@
+<ul>
+    {% for event in events %}
+        <li>{{ event.startDate|date("d.m.Y H:i") }}-{{ event.endDate|date("H:i") }} {{ event.group }} {{ event.course }} </li>
+    {% else %}
+        <li>Not found</li>
+    {% endfor %}
+</ul>
