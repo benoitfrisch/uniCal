@@ -29,7 +29,7 @@ class LoadEvents implements FixtureInterface
             $startDate = $events[$i]['DateDebut'];
             $endDate = $events[$i]['DateFin'];
 
-            echo "#" . $i . "/" . count($events) - 1 . " @ " . $startDate . " - " . $courseName . "\n";
+            echo "#" . $i . "/" . (count($events) - 1) . " @ " . $startDate . " - " . $courseName . "\n";
 
             $course = $manager->getRepository('AppBundle:Course')->findOneBy(['name' => $courseName]);
             if (empty($course)) {
