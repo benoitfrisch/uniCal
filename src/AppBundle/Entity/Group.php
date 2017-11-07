@@ -35,7 +35,7 @@ class Group
     private $name;
 
     /**
-     * Many Subjects have One Section.
+     * Many Groups have One Course.
      * @ORM\ManyToOne(targetEntity="Course", inversedBy="groups")
      * @ORM\JoinColumn(name="course_id", referencedColumnName="id")
      */
@@ -47,14 +47,14 @@ class Group
     private $extra;
 
     /**
-     * One Course has Many Events.
+     * One Group has Many Events.
      * @ORM\OneToMany(targetEntity="Event", mappedBy="group")
      * @ORM\OrderBy({"startDate" = "ASC"})
      */
     private $events;
 
     /**
-     * Many Exams have Many Subjects.
+     * Many Groups have Many Users.
      * @ORM\ManyToMany(targetEntity="User", inversedBy="groups")
      * @ORM\JoinTable(name="groups_users")
      */

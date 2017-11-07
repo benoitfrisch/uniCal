@@ -27,7 +27,7 @@ class Local
     private $name;
 
     /**
-     * One Course has Many Events.
+     * One Local has Many Events.
      * @ORM\OneToMany(targetEntity="Event", mappedBy="local")
      * @ORM\OrderBy({"startDate" = "ASC"})
      */

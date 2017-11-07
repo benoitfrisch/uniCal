@@ -33,7 +33,7 @@ class Course
     private $events;
 
     /**
-     * One Course has Many Events.
+     * One Course has Many Groups.
      * @ORM\OneToMany(targetEntity="Group", mappedBy="course")
      */
     private $groups;

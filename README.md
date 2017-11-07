@@ -79,7 +79,7 @@ In following instructions, I assume that you have some basic knowledge of JSON f
 ### Import the data
 * Run 
 ```bash
-bin/console import:json
+bin/console doctrine:fixtures:load
 ```
 ### Select your groups
 * Go to the admin interface (/admin) and create a user.

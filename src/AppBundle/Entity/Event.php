@@ -21,7 +21,7 @@ class Event
     private $id;
 
     /**
-     * Many Subjects have One Section.
+     * Many Events have One Course.
      * @ORM\ManyToOne(targetEntity="Course", inversedBy="events")
      * @ORM\JoinColumn(name="course_id", referencedColumnName="id")
      */
@@ -29,7 +29,7 @@ class Event
 
     /**
      * @var Course
-     * Many Subjects have One Section.
+     * Many Events have One Group.
      * @ORM\ManyToOne(targetEntity="Group", inversedBy="events")
      * @ORM\JoinColumn(name="group_id", referencedColumnName="id")
      */
@@ -37,7 +37,7 @@ class Event
 
     /**
      * @var Course
-     * Many Subjects have One Section.
+     * Many Events have One Local.
      * @ORM\ManyToOne(targetEntity="Local", inversedBy="events")
      * @ORM\JoinColumn(name="local_id", referencedColumnName="id")
      */

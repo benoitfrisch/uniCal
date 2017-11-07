@@ -28,8 +28,7 @@ class User
     private $name;
 
     /**
-     * Many Subjects have Many Exams.
-     *
+     * Many Users have Many Groups.
      * @Assert\NotBlank()
      * @ORM\ManyToMany(targetEntity="Group", mappedBy="users")
      */

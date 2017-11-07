@@ -38,7 +38,7 @@ class LoadExamData implements FixtureInterface
         $manager->persist($allGroup);
         $manager->flush();
 
-        $events = json_decode(file_get_contents('files/roger.json'), true);
+        $events = json_decode(file_get_contents('files/calendar.json'), true);
 
         for ($i = 0; $i < count($events); $i++) {
             $courseName = $events[$i]['Title'];
