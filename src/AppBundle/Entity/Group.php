@@ -54,9 +54,9 @@ class Group
     private $events;
 
     /**
-     * Many Groups have Many Users.
-     * @ORM\ManyToMany(targetEntity="User", inversedBy="groups")
-     * @ORM\JoinTable(name="groups_users")
+     * Many Users have Many Groups.
+     * @Assert\NotBlank()
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="groups")
      */
     private $users;
 
@@ -65,7 +65,7 @@ class Group
      */
     public function __toString()
     {
-        return $this->name;
+        return $this->name . " " . $this->course;
     }
 
     /**

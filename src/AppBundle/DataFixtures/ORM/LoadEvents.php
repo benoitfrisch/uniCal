@@ -29,29 +29,29 @@ class LoadEvents implements FixtureInterface
             $startDate = $events[$i]['DateDebut'];
             $endDate = $events[$i]['DateFin'];
 
-            echo "  " . $courseName . "\n";
+            echo "#" . $i . "/" . count($events) - 1 . " @ " . $startDate . " - " . $courseName . "\n";
 
             $course = $manager->getRepository('AppBundle:Course')->findOneBy(['name' => $courseName]);
             if (empty($course)) {
-                echo "creating new course";
                 $course = new Course();
                 $course->setName($courseName);
                 $manager->persist($course);
                 $manager->flush();
+                echo "--->creating new course" . "\n";
             }
 
             $local = $manager->getRepository('AppBundle:Local')->findOneBy(['name' => $localName]);
             if (empty($local)) {
-                echo "creating new local";
                 $local = new Local();
                 $local->setName($localName);
                 $manager->persist($local);
                 $manager->flush();
+                echo "--->creating new local " . $localName . "\n";
             }
 
             $groupPattern = '/^(Groupe)(\s)([0-9]{1})(\s)(\((.*?)\))/';
             preg_match($groupPattern, $groupName, $groupMatches);
-            print_r($groupMatches);
+            //print_r($groupMatches);
 
             if (count($groupMatches) > 0) {
                 $group = $manager->getRepository('AppBundle:Group')->findOneBy(['name' => $groupMatches[0], 'number' => $groupMatches[3], 'extra' => $groupMatches[6]]);
@@ -63,6 +63,7 @@ class LoadEvents implements FixtureInterface
                     $group->setCourse($course);
                     $manager->persist($group);
                     $manager->flush();
+                    echo "--->creating new group " . $groupMatches[0] . "\n";
                 }
             } else {
                 $group = $allGroup;

@@ -28,9 +28,10 @@ class User
     private $name;
 
     /**
-     * Many Users have Many Groups.
-     * @Assert\NotBlank()
-     * @ORM\ManyToMany(targetEntity="Group", mappedBy="users")
+     * Many Groups have Many Users.
+     * @ORM\ManyToMany(targetEntity="Group", inversedBy="users")
+     * @ORM\JoinTable(name="groups_users")
+     * @ORM\OrderBy({"number" = "ASC","course" = "ASC"})
      */
     private $groups;
 
