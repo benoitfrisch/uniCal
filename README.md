@@ -8,6 +8,12 @@ License
 ------------
 
  Check out the [LICENSE](LICENSE) file.
+ 
+Disclamer
+-------------
+I am not affiliated, associated, authorized, endorsed by, or in any way officially connected with the University of Luxembourg (Uni.lu). I'm not studying at Uni.lu.
+
+All content provided on this page is for personal purposes only. The owner will not be liable for any losses, or damages from the use this guide.
 
 Requirements
 ------------
