@@ -1,0 +1,24 @@
+[
+  {
+    "DateDebut": "2017/09/21 09:45",
+    "DateFin": "2017/09/21 13:00",
+    "Enseignant": "Superjhemp",
+    "Id": "123",
+    "Title": "Hello World",
+    "Cours": "Hello World",
+    "IdCours": "123",
+    "CPE": "Hello World",
+    "ICPE": "Groupe 1",
+    "LibelleType": "Lecture",
+    "TypeCPE": "1",
+    "Description": "Hello World",
+    "IsAllDay": false,
+    "EstVoisin": false,
+    "IsCancelled": false,
+    "Local": "SKY",
+    "Form": null,
+    "IdFormPrincipal": "0",
+    "FormationColor": "#",
+    "FormAffichage": null
+  }
+]
