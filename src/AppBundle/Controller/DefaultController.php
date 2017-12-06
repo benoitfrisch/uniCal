@@ -5,7 +5,6 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
@@ -38,9 +37,22 @@ class DefaultController extends Controller
         $provider = $this->get('bomo_ical.ics_provider');
 
         $tz = $provider->createTimezone();
+        $config = [
+            'dtstart' => '19710101T030000',
+            'tzoffsetto' => '+0200',
+            'tzoffsetfrom' => '+0100',
+            'rrule' => [
+                'freq' => 'YEARLY',
+                'wkst' => 'MO',
+                'interval' => 1,
+                'bymonth' => 10,
+            ],
+            'tzname' => 'CET'
+        ];
         $tz
             ->setTzid('Europe/Paris')
-            ->setProperty('X-LIC-LOCATION', $tz->getTzid());
+            ->setProperty('X-LIC-LOCATION', $tz->getTzid())
+            ->setDaylight($config);
 
         $cal = $provider->createCalendar($tz);
 
@@ -52,9 +64,10 @@ class DefaultController extends Controller
         foreach ($events as $eventCal) {
             $event = $cal->newEvent();
             //substract 2 hours
+            //->sub(new \DateInterval("PT7200S")))
             $event
-                ->setStartDate($eventCal->getStartDate()->sub(new \DateInterval("PT7200S")))
-                ->setEndDate($eventCal->getEndDate()->sub(new \DateInterval("PT7200S")))
+                ->setStartDate($eventCal->getStartDate()->sub(new \DateInterval("PT3600S")))
+                ->setEndDate($eventCal->getEndDate()->sub(new \DateInterval("PT3600S")))
                 ->setName($eventCal->getCourse())
                 ->setDescription($eventCal->getGroup())
                 ->setLocation($eventCal->getLocal());
